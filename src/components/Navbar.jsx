@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react'; // Icon library
 import logoBlack from '../assets/sparqal-logo-black.png';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,16 +12,18 @@ const Navbar = () => {
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
+            <Link to={"/"} >
             <div className="flex items-center space-x-2">
                 <img src={logoBlack} alt="" className='w-40'/>
             </div>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#services" className="text-gray-700 hover:text-primary transition-colors">Services</a>
-              <a href="#about" className="text-gray-700 hover:text-primary transition-colors">About</a>
+              <Link to="/services" className="text-gray-700 hover:text-primary transition-colors">Services</Link>
+              <Link to="/about" className="text-gray-700 hover:text-primary transition-colors">About</Link>
               <a href="#portfolio" className="text-gray-700 hover:text-primary transition-colors">Portfolio</a>
-              <a href="#testimonials" className="text-gray-700 hover:text-primary transition-colors">Testimonials</a>
+              <a href="/contact" className="text-gray-700 hover:text-primary transition-colors">Contact</a>
               <button className="bg-primary text-white px-6 py-2 rounded-lg hover:bg-dark transition-all duration-300 transform hover:scale-105">
                 Get Started
               </button>
