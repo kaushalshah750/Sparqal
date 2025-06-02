@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { Helmet } from 'react-helmet';
 
 const ServicesPage = () => {
   const [activeService, setActiveService] = useState(0);
@@ -192,6 +193,15 @@ const ServicesPage = () => {
   ];
 
   return (
+    <>
+    <Helmet>
+        <title>Web Development Services – Sparqal Digital Agency</title>
+        <meta 
+            name="description" 
+            content="Explore Sparqal’s professional web development services, including responsive websites, custom web apps, SaaS MVPs, and seamless backend integration for scalable growth." 
+        />
+    </Helmet>
+
     <div className="min-h-screen bg-white">
         <Navbar />
       {/* Hero Section */}
@@ -492,6 +502,7 @@ const ServicesPage = () => {
       </section>
       <Footer />
     </div>
+    </>
   );
 };
 

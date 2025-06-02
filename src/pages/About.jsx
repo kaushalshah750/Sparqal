@@ -23,6 +23,7 @@ import {
 } from 'lucide-react';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
+import { Helmet } from 'react-helmet';
 
 const AboutPage = () => {
   const coreValues = [
@@ -155,7 +156,16 @@ const AboutPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <>
+        <Helmet>
+        <title>About Sparqal – Full-Stack Web Development Agency</title>
+        <meta 
+            name="description" 
+            content="Discover Sparqal, a cutting-edge web development agency delivering modern, scalable digital solutions for businesses of all sizes and industries." 
+        />
+        </Helmet>
+
+        <div className="min-h-screen bg-white">
         <Navbar />
       
       {/* About Header - Trust-focused, not sales-focused */}
@@ -419,6 +429,7 @@ const AboutPage = () => {
 
       <Footer />
     </div>
+    </>
   );
 };
 

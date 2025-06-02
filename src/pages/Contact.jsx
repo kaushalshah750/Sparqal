@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle, Clock, MessageSquare } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { Helmet } from 'react-helmet';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -41,6 +42,15 @@ export default function Contact() {
   const isFormValid = formData.name && formData.email && formData.subject && formData.message;
 
   return (
+    <>
+    <Helmet>
+  <title>Contact Sparqal – Let’s Build Your Next Digital Project</title>
+  <meta 
+    name="description" 
+    content="Get in touch with Sparqal to discuss your website or digital product needs. We work with startups, enterprises, and agencies to bring ideas to life with code." 
+  />
+</Helmet>
+
     <main className="min-h-screen bg-white">
         <Navbar />
       {/* Focused Page Header */}
@@ -327,6 +337,7 @@ export default function Contact() {
         </div>
       </section>
         <Footer />
-    </main>
+        </main>
+        </>
   );
 }

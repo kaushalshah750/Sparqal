@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Menu, X, ArrowRight, Check, Star, Globe, Code, Zap, Users, ChevronDown, Play, TrendingUp, Award, Shield } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { Helmet } from 'react-helmet';
 
 const SparqalHomepage = () => {
   const [openFaq, setOpenFaq] = useState(null);
@@ -81,6 +82,15 @@ const SparqalHomepage = () => {
   ];
 
   return (
+    <>
+    <Helmet>
+  <title>Sparqal – Full-Service Web Development Agency</title>
+  <meta 
+    name="description" 
+    content="Sparqal is a modern web development agency crafting high-performance websites and digital experiences for businesses of all sizes across industries." 
+  />
+</Helmet>
+
     <div className="min-h-screen bg-white text-black">
         <Navbar />
 
@@ -466,6 +476,7 @@ const SparqalHomepage = () => {
 
         <Footer />
     </div>
+    </>
   );
 };
 
