@@ -68,7 +68,7 @@ export default function Contact() {
           {/* Contact Methods Quick Access */}
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             <a 
-              href="mailto:hello@sparqal.com"
+              href="mailto:kaushal@mrkaushalshah.com"
               className="flex items-center gap-3 p-4 bg-white/80 rounded-xl hover:bg-white hover:shadow-md transition-all duration-200 group"
             >
               <div className="bg-primary/10 p-3 rounded-lg group-hover:bg-primary/20 transition-colors">
@@ -81,7 +81,7 @@ export default function Contact() {
             </a>
             
             <a 
-              href="tel:+15551234567"
+              href="tel:+919974442525"
               className="flex items-center gap-3 p-4 bg-white/80 rounded-xl hover:bg-white hover:shadow-md transition-all duration-200 group"
             >
               <div className="bg-primary/10 p-3 rounded-lg group-hover:bg-primary/20 transition-colors">
@@ -129,60 +129,25 @@ export default function Contact() {
                 {isSubmitted ? (
                   <div className="bg-primary/10 border border-primary/20 rounded-xl p-8 text-center">
                     <CheckCircle className="w-16 h-16 text-primary mx-auto mb-4" />
-                    <h3 className="text-2xl font-semibold text-dark mb-2">
-                      Message Sent Successfully!
-                    </h3>
-                    <p className="text-dark/70">
-                      Thank you for reaching out. We'll get back to you within 24 hours with next steps.
-                    </p>
+                    <h3 className="text-2xl font-semibold text-dark mb-2">Message Sent Successfully!</h3>
+                    <p className="text-dark/70">Thank you for reaching out. We'll get back to you within 24 hours with next steps.</p>
                   </div>
                 ) : (
                   <div className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
-                        <label htmlFor="name" className="block text-sm font-semibold text-dark mb-2">
-                          Full Name <span className="text-primary">*</span>
-                        </label>
-                        <input
-                          type="text"
-                          id="name"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          required
-                          className="w-full px-4 py-3 bg-white border-2 border-dark/10 rounded-lg focus:border-primary focus:outline-none transition-colors duration-200"
-                          placeholder="Your full name"
-                        />
+                        <label htmlFor="name" className="block text-sm font-semibold text-dark mb-2">Full Name <span className="text-primary">*</span></label>
+                        <input type="text" id="name" name="name" value={formData.name} onChange={handleInputChange} required className="w-full px-4 py-3 bg-white border-2 border-dark/10 rounded-lg focus:border-primary focus:outline-none transition-colors duration-200" placeholder="Your full name" />
                       </div>
                       <div>
-                        <label htmlFor="email" className="block text-sm font-semibold text-dark mb-2">
-                          Email Address <span className="text-primary">*</span>
-                        </label>
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          required
-                          className="w-full px-4 py-3 bg-white border-2 border-dark/10 rounded-lg focus:border-primary focus:outline-none transition-colors duration-200"
-                          placeholder="your@email.com"
-                        />
+                        <label htmlFor="email" className="block text-sm font-semibold text-dark mb-2">Email Address <span className="text-primary">*</span></label>
+                        <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} required className="w-full px-4 py-3 bg-white border-2 border-dark/10 rounded-lg focus:border-primary focus:outline-none transition-colors duration-200" placeholder="your@email.com"/>
                       </div>
                     </div>
                     
                     <div>
-                      <label htmlFor="subject" className="block text-sm font-semibold text-dark mb-2">
-                        Project Type <span className="text-primary">*</span>
-                      </label>
-                      <select
-                        id="subject"
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 bg-white border-2 border-dark/10 rounded-lg focus:border-primary focus:outline-none transition-colors duration-200"
-                      >
+                      <label htmlFor="subject" className="block text-sm font-semibold text-dark mb-2">Project Type <span className="text-primary">*</span></label>
+                      <select id="subject" name="subject" value={formData.subject} onChange={handleInputChange} required className="w-full px-4 py-3 bg-white border-2 border-dark/10 rounded-lg focus:border-primary focus:outline-none transition-colors duration-200">
                         <option value="">What can we help you with?</option>
                         <option value="New Website">New Website Design</option>
                         <option value="Website Redesign">Website Redesign</option>
@@ -198,28 +163,14 @@ export default function Contact() {
                       <label htmlFor="message" className="block text-sm font-semibold text-dark mb-2">
                         Project Details <span className="text-primary">*</span>
                       </label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        required
-                        rows="6"
-                        className="w-full px-4 py-3 bg-white border-2 border-dark/10 rounded-lg focus:border-primary focus:outline-none transition-colors duration-200 resize-vertical"
-                        placeholder="Tell us about your business, goals, timeline, budget range, and any specific requirements. The more details you provide, the better we can help you."
-                      ></textarea>
+                      <textarea id="message" name="message" value={formData.message} onChange={handleInputChange} required rows="6" className="w-full px-4 py-3 bg-white border-2 border-dark/10 rounded-lg focus:border-primary focus:outline-none transition-colors duration-200 resize-vertical" placeholder="Tell us about your business, goals, timeline, budget range, and any specific requirements. The more details you provide, the better we can help you." ></textarea>
                     </div>
                     
-                    <button
-                      type="submit"
-                      onClick={handleSubmit}
-                      disabled={!isFormValid}
-                      className={`w-full py-4 px-6 rounded-lg font-semibold text-white flex items-center justify-center gap-3 transition-all duration-200 ${
+                    <button type="submit" onClick={handleSubmit} disabled={!isFormValid} className={`w-full py-4 px-6 rounded-lg font-semibold text-white flex items-center justify-center gap-3 transition-all duration-200 ${
                         isFormValid 
                           ? 'bg-primary hover:bg-primary/90 hover:scale-105 shadow-lg hover:shadow-xl' 
                           : 'bg-dark/20 cursor-not-allowed'
-                      }`}
-                    >
+                      }`}>
                       <Send className="w-5 h-5" />
                       Send Message
                     </button>
@@ -246,7 +197,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-dark mb-1">Email</h3>
-                      <p className="text-dark/70 mb-2">hello@sparqal.com</p>
+                      <p className="text-dark/70 mb-2">kaushal@mrkaushalshah.com</p>
                       <div className="flex items-center gap-2 text-sm text-dark/60">
                         <Clock className="w-4 h-4" />
                         <span>Response within 24 hours</span>
@@ -260,10 +211,10 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-dark mb-1">Phone</h3>
-                      <p className="text-dark/70 mb-2">+1 (555) 123-4567</p>
+                      <p className="text-dark/70 mb-2">+91 99744 42525</p>
                       <div className="flex items-center gap-2 text-sm text-dark/60">
                         <Clock className="w-4 h-4" />
-                        <span>Mon-Fri, 9AM-6PM EST</span>
+                        <span>Mon-Fri, 10AM - 8PM IST</span>
                       </div>
                     </div>
                   </div>
@@ -275,9 +226,9 @@ export default function Contact() {
                     <div>
                       <h3 className="font-semibold text-dark mb-1">Office</h3>
                       <p className="text-dark/70 mb-2">
-                        123 Innovation Drive<br />
-                        Suite 200<br />
-                        Tech City, TC 12345
+                        221, Laxmi Arcade, Kim, Surat<br />
+                        Gujarat, India - 394110<br />
+                        
                       </p>
                       <p className="text-sm text-dark/60">By appointment only</p>
                     </div>

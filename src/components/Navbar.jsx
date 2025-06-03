@@ -22,8 +22,8 @@ const Navbar = () => {
             <div className="hidden md:flex items-center space-x-8">
               <Link to="/services" className="text-gray-700 hover:text-primary transition-colors">Services</Link>
               <Link to="/about" className="text-gray-700 hover:text-primary transition-colors">About</Link>
-              <a href="#portfolio" className="text-gray-700 hover:text-primary transition-colors">Portfolio</a>
-              <a href="/contact" className="text-gray-700 hover:text-primary transition-colors">Contact</a>
+              <Link to="/portfolio" className="text-gray-700 hover:text-primary transition-colors">Portfolio</Link>
+              <Link to="/contact" className="text-gray-700 hover:text-primary transition-colors">Contact</Link>
               <button className="bg-primary text-white px-6 py-2 rounded-lg hover:bg-dark transition-all duration-300 transform hover:scale-105">
                 Get Started
               </button>

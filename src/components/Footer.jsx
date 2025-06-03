@@ -1,5 +1,6 @@
 import React from "react";
 import logoWhite from '../assets/sparqal-logo-white.png';
+import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
@@ -18,29 +19,29 @@ const Footer = () => {
             <div>
               <h3 className="font-semibold text-lg mb-4">Services</h3>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-primary transition-colors">Web Design</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Web Development</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">SEO Services</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Ongoing Support</a></li>
+                <li><Link to="/services" className="hover:text-primary transition-colors">Web Design</Link></li>
+                <li><Link to="/services" className="hover:text-primary transition-colors">Web Development</Link></li>
+                <li><Link to="/services" className="hover:text-primary transition-colors">SEO Services</Link></li>
+                <li><Link to="/services" className="hover:text-primary transition-colors">Ongoing Support</Link></li>
               </ul>
             </div>
 
             <div>
               <h3 className="font-semibold text-lg mb-4">Company</h3>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-primary transition-colors">About Us</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Portfolio</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Testimonials</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Contact</a></li>
+                <li><Link to="/about" className="hover:text-primary transition-colors">About Us</Link></li>
+                <li><Link to="/services" className="hover:text-primary transition-colors">Services</Link></li>
+                <li><Link to="/portfolio" className="hover:text-primary transition-colors">Portfolio</Link></li>
+                <li><Link to="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
               </ul>
             </div>
 
             <div>
               <h3 className="font-semibold text-lg mb-4">Get In Touch</h3>
               <div className="space-y-2 text-gray-400">
-                <p>hello@sparqal.com</p>
-                <p>(555) 123-4567</p>
-                <p>Mon-Fri 9AM-6PM EST</p>
+                <p>kaushal@mrkaushalshah.com</p>
+                <p>+91 99744 42525</p>
+                <p>Mon - Fri 10AM - 8PM IST</p>
               </div>
             </div>
           </div>
