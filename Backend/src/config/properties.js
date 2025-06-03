@@ -1,4 +1,4 @@
 module.exports = {
     PORT: 2003,
-    BaseUrl: "https://localhost:4200/",
-}
+    MONGO_URI: "mongodb://localhost:27017/Sparqal",
+};
