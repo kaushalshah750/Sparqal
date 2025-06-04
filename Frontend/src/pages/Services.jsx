@@ -148,7 +148,7 @@ const ServicesPage = () => {
   const serviceStats = [
     { number: "100%", label: "Project Success Rate" },
     { number: "99%", label: "Client Satisfaction" },
-    { number: "12hr", label: "Average Response Time" },
+    { number: "24hr", label: "Average Response Time" },
     { number: "100%", label: "Mobile Optimized" }
   ];
 

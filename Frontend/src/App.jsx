@@ -5,6 +5,8 @@ import ServicesPage from './pages/Services';
 import AboutPage from './pages/About';
 import Contact from './pages/Contact';
 import PortfolioPage from './pages/Portfolio';
+import SparqalLogin from './pages/Login';
+import SparqalDashboard from './pages/Dashboard';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
       </div>
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/login' element={<SparqalLogin />} />
+        <Route path='/dashboard' element={<SparqalDashboard />} />
         <Route path='/services' element={<ServicesPage />} />
         <Route path='/about' element={<AboutPage />} />
         <Route path='/portfolio' element={<PortfolioPage />} />

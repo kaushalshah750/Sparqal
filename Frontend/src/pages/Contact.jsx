@@ -3,15 +3,18 @@ import { Mail, Phone, MapPin, Send, CheckCircle, Clock, MessageSquare } from 'lu
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Helmet } from 'react-helmet';
+import { sendContactForm } from '../services/contact.service';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: 'Kaushal Shah',
+    email: 'kaushal@mrkaushalshah.com',
+    type: '',
+    project_detail: 'This is a test message to check the contact form functionality.'
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -22,24 +25,33 @@ export default function Contact() {
   };
 
   const handleSubmit = (e) => {
+    setIsLoading(true);
     e.preventDefault();
-    // Simulate form submission
     console.log('Form submitted:', formData);
-    setIsSubmitted(true);
+    
+    sendContactForm(formData)
+      .then(response => {
+        setIsSubmitted(true);
+        console.log('Form sent successfully:', response);
+        setIsLoading(false);
+      }).catch(error => {
+        console.error('Error sending form:', error);
+        setIsLoading(false);
+      });
     
     // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      });
-    }, 3000);
+    // setTimeout(() => {
+    //   setIsSubmitted(false);
+      // setFormData({
+      //   name: '',
+      //   email: '',
+      //   type: '',
+      //   project_detail: ''
+      // });
+    // }, 3000);
   };
 
-  const isFormValid = formData.name && formData.email && formData.subject && formData.message;
+  const isFormValid = formData.name && formData.email && formData.type && formData.project_detail;
 
   return (
     <>
@@ -143,8 +155,8 @@ export default function Contact() {
                       </div>
                       
                       <div>
-                        <label htmlFor="subject" className="block text-sm font-semibold text-dark mb-2">Project Type <span className="text-primary">*</span></label>
-                        <select id="subject" name="subject" value={formData.subject} onChange={handleInputChange} required className="w-full px-4 py-3 bg-white border-2 border-dark/10 rounded-lg focus:border-primary focus:outline-none transition-colors duration-200">
+                        <label htmlFor="type" className="block text-sm font-semibold text-dark mb-2">Project Type <span className="text-primary">*</span></label>
+                        <select id="type" name="type" value={formData.type} onChange={handleInputChange} required className="w-full px-4 py-3 bg-white border-2 border-dark/10 rounded-lg focus:border-primary focus:outline-none transition-colors duration-200">
                           <option value="">What can we help you with?</option>
                           <option value="New Website">New Website Design</option>
                           <option value="Website Redesign">Website Redesign</option>
@@ -157,19 +169,30 @@ export default function Contact() {
                       </div>
                       
                       <div>
-                        <label htmlFor="message" className="block text-sm font-semibold text-dark mb-2">
+                        <label htmlFor="project_detail" className="block text-sm font-semibold text-dark mb-2">
                           Project Details <span className="text-primary">*</span>
                         </label>
-                        <textarea id="message" name="message" value={formData.message} onChange={handleInputChange} required rows="6" className="w-full px-4 py-3 bg-white border-2 border-dark/10 rounded-lg focus:border-primary focus:outline-none transition-colors duration-200 resize-vertical" placeholder="Tell us about your business, goals, timeline, budget range, and any specific requirements. The more details you provide, the better we can help you." ></textarea>
+                        <textarea id="project_detail" name="project_detail" value={formData.project_detail} onChange={handleInputChange} required rows="6" className="w-full px-4 py-3 bg-white border-2 border-dark/10 rounded-lg focus:border-primary focus:outline-none transition-colors duration-200 resize-vertical" placeholder="Tell us about your business, goals, timeline, budget range, and any specific requirements. The more details you provide, the better we can help you." ></textarea>
                       </div>
                       
-                      <button type="submit" onClick={handleSubmit} disabled={!isFormValid} className={`w-full py-4 px-6 rounded-lg font-semibold text-white flex items-center justify-center gap-3 transition-all duration-200 ${
+                      <button type="submit" onClick={handleSubmit} disabled={!isFormValid || isLoading} className={`w-full py-4 px-6 rounded-lg font-semibold text-white flex items-center justify-center gap-3 transition-all duration-200 ${
                           isFormValid 
                             ? 'bg-primary hover:bg-primary/90 hover:scale-105 shadow-lg hover:shadow-xl' 
                             : 'bg-dark/20 cursor-not-allowed'
                         }`}>
-                        <Send className="w-5 h-5" />
-                        Send Message
+                          {isLoading ? (
+                            <>
+                              <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                              Send Message
+                            </>
+                          ) : (
+                            <>
+                              <Send className="w-5 h-5" />
+                              Sending Message
+                            </>
+                            )
+
+                      }
                       </button>
                       
                       <p className="text-sm text-dark/60 text-center">
