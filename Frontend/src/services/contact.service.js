@@ -1,7 +1,7 @@
 // src/services/contact.service.js
 import axios from 'axios';
 
-const API_BASE = 'https://www.sparqal.com/api';
+const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
 export const sendContactForm = async (formData) => {
   try {

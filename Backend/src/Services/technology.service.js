@@ -3,7 +3,6 @@ const technologyModel = require('../Models/technology.model');
 async function getTechnologies() {
     try {
         const technologies = await technologyModel.find();
-        console.log('Technologies fetched successfully:', technologies);
         return technologies;
     } catch (error) {
         console.error('Error fetching technologies:', error);

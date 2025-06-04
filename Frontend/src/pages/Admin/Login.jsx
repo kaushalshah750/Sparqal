@@ -13,7 +13,6 @@ const SparqalLogin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-
     
     // Simulate login process
     setTimeout(() => {
