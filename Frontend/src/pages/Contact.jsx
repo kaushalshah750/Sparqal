@@ -1,16 +1,17 @@
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle, Clock, MessageSquare } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, Clock, MessageSquare, AlertCircle } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Helmet } from 'react-helmet';
 import { sendContactForm } from '../services/contact.service';
+import { Toaster, toast } from 'sonner';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    name: 'Kaushal Shah',
-    email: 'kaushal@mrkaushalshah.com',
+    name: '',
+    email: '',
     type: '',
-    project_detail: 'This is a test message to check the contact form functionality.'
+    project_detail: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -27,14 +28,20 @@ export default function Contact() {
   const handleSubmit = (e) => {
     setIsLoading(true);
     e.preventDefault();
-    console.log('Form submitted:', formData);
     
     sendContactForm(formData)
       .then(response => {
         setIsSubmitted(true);
-        console.log('Form sent successfully:', response);
         setIsLoading(false);
+        toast.success('Form sent successfully', {
+          className: 'bg-green-600 text-white w-[90vw] max-w-sm mx-auto px-4 py-3 rounded-xl shadow-lg text-sm sm:text-base',
+          icon: <CheckCircle className="text-white w-5 h-5" />,
+        });
       }).catch(error => {
+        toast.error('Something went wrong.', {
+          className: 'bg-red-600 text-white w-[90vw] max-w-sm mx-auto px-4 py-3 rounded-xl shadow-lg text-sm sm:text-base',
+          icon: <AlertCircle className="text-white w-5 h-5" />,
+        });
         console.error('Error sending form:', error);
         setIsLoading(false);
       });
@@ -55,6 +62,15 @@ export default function Contact() {
 
   return (
     <>
+      <Toaster
+        position="bottom-left"
+        theme="custom"
+        toastOptions={{
+          unstyled: true,
+          className: 'w-[90vw] max-w-sm mx-auto rounded-xl px-4 py-3 text-sm sm:text-base shadow-md flex items-center gap-3',
+        }}
+      />
+
       <Helmet>
         <title>Contact Sparqal – Let’s Build Your Next Digital Project</title>
         <meta name="description" content="Get in touch with Sparqal to discuss your website or digital product needs. We work with startups, enterprises, and agencies to bring ideas to life with code." />

@@ -3,6 +3,7 @@ import { Globe, Code, Search, Headphones, Smartphone, ArrowRight, Check, Star, C
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const ServicesPage = () => {
   const [activeService, setActiveService] = useState(0);
@@ -206,9 +207,18 @@ const ServicesPage = () => {
     window.open(url, '_blank');
   }
 
+  const redirectSericeDetail = (index) => {
+    setActiveService(index);
+    window.open(`#service-detail`, '_self');
+  }
 
   return (
     <>
+      <Helmet>
+        <title>Web Development Services – Sparqal Digital Agency</title>
+        <meta name="description" content="Explore Sparqal’s professional web development services, including responsive websites, custom web apps, SaaS MVPs, and seamless backend integration for scalable growth." />
+      </Helmet>
+
       <div className="min-h-screen bg-white">
         <Navbar />
         
@@ -236,8 +246,9 @@ const ServicesPage = () => {
                   <h3 className="text-xl font-bold text-dark mb-2">{service.title}</h3>
                   <p className="text-primary font-medium mb-3">{service.subtitle}</p>
                   <p className="text-gray-600 mb-4 line-clamp-3">{service.description}</p>
+                  {/* <Link to="#service"></Link> */}
                   <button 
-                    onClick={() => setActiveService(index)}
+                    onClick={() => redirectSericeDetail(index)}
                     className="text-primary font-semibold hover:text-dark transition-colors duration-300 flex items-center group"
                   >
                     Learn More 
@@ -264,7 +275,7 @@ const ServicesPage = () => {
         </section>
 
         {/* Main Services Section */}
-        <section className="py-20 bg-light/30">
+        <section id='service-detail' className="py-20 bg-light/30">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-dark mb-4">

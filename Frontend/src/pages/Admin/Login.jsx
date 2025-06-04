@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff, Lock, Mail, ArrowRight, Globe, Shield, Users } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
-import logoBlack from '../assets/sparqal-logo-black.png';
-import logoWhite from '../assets/sparqal-logo-white.png';
+import logoWhite from '../../assets/sparqal-logo-white.png';
 
 const SparqalLogin = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -20,7 +19,6 @@ const SparqalLogin = () => {
     setTimeout(() => {
         setIsLoading(false);
         navigate('/dashboard')
-        console.log('Login attempt:', { email, password });
     }, 2000);
   };
 

@@ -1,4 +1,4 @@
-const contactService = require('../../Services/contact.service');
+const contactService = require('../Services/contact.service');
 
 exports.submitContactForm = async (req, res) => {
     try {

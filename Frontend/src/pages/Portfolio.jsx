@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { ExternalLink, Github, ArrowRight, Filter, Calendar, User, Tag, Globe, Code, Search, Smartphone, Headphones, Eye, Star, Award, TrendingUp } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const PortfolioPage = () => {
   const [selectedFilter, setSelectedFilter] = useState('all');
@@ -10,150 +12,165 @@ const PortfolioPage = () => {
   const portfolioProjects = [
     {
       id: 1,
-      title: "EcoTech Solutions",
-      subtitle: "Sustainable Technology Company",
-      category: "web-design",
-      tags: ["React", "Node.js", "MongoDB", "Responsive Design"],
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-      description: "A modern, eco-friendly website for a sustainable technology company focused on renewable energy solutions.",
-      longDescription: "EcoTech Solutions needed a website that reflected their commitment to sustainability while showcasing their cutting-edge technology. We created a clean, modern design with interactive elements that highlight their green initiatives and technical expertise.",
+      title: 'Savoré',
+      subtitle: 'Fine Dining Restaurant Website',
+      category: 'web-design',
+      tags: ['Angular', 'TailwindCSS', 'Responsive Design', 'Animations'],
+      image: 'https://otiybtgavdvgrjhajnba.supabase.co/storage/v1/object/public/kaushalshah/projects/Savore/savore.webp',
+      description: 'A luxurious, interactive single-page website built for a fine dining restaurant.',
+      longDescription: 'Savoré is a refined web presence that brings the elegance of a premium restaurant experience to life online. Built with Angular 19 and Tailwind CSS v4, it features fluid scroll-triggered animations, rich visuals, and a layout designed to convert visitors into diners.',
       features: [
-        "Custom responsive design with eco-friendly color palette",
-        "Interactive product showcase with 3D elements",
-        "Integrated contact forms and consultation booking",
-        "SEO-optimized content structure",
-        "Fast loading performance (95+ PageSpeed score)"
+        'Angular 19 SPA with scroll animations',
+        'Tailwind CSS v4 responsive layout and styling',
+        'Dynamic testimonial carousel',
+        'Lightbox-enabled photo gallery',
+        'Map integration with booking links'
       ],
       results: [
-        "40% increase in qualified leads",
-        "60% improvement in user engagement",
-        "35% boost in consultation bookings",
-        "Top 3 Google rankings for target keywords"
+        'Enhanced brand perception as a luxury venue',
+        'Increased table reservation inquiries',
+        'Positive user feedback on mobile experience'
       ],
-      technologies: ["React", "Node.js", "MongoDB", "Tailwind CSS", "Three.js"],
-      timeline: "6 weeks",
-      client: "EcoTech Solutions Inc.",
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/example"
+      technologies: [
+        'Angular',
+        'Tailwind CSS',
+        'Google Maps',
+        'Intersection Observer'
+      ],
+      timeline: '4 weeks',
+      client: 'Savoré Fine Dining',
+      liveUrl: 'http://savore.mrkaushalshah.com/',
+      githubUrl: 'https://github.com/kaushalshah750/Orien-Savore'
     },
     {
       id: 2,
-      title: "FoodieHub Restaurant",
-      subtitle: "Local Restaurant Chain",
-      category: "e-commerce",
-      tags: ["E-commerce", "Payment Integration", "Mobile App", "SEO"],
-      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop",
-      description: "Full-featured restaurant website with online ordering, reservation system, and mobile-responsive design.",
-      longDescription: "FoodieHub needed a comprehensive digital solution to handle online orders, table reservations, and showcase their menu across multiple locations. The result was a feature-rich platform that streamlined their operations.",
+      title: 'SyncAI',
+      subtitle: 'AI-Powered SaaS Landing Page',
+      category: 'web-design',
+      tags: ['Angular', 'TailwindCSS', 'SaaS', 'SEO'],
+      image: 'https://otiybtgavdvgrjhajnba.supabase.co/storage/v1/object/public/kaushalshah/projects/SyncAi/syncai.webp',
+      description: 'A modern landing page for AI SaaS products, built to convert and impress.',
+      longDescription: 'SyncAI is a high-performance single-page application tailored for showcasing AI products and automation tools. With its sleek UI and conversion-focused layout, it helps SaaS startups quickly establish credibility and attract early users or investors.',
       features: [
-        "Online ordering system with real-time updates",
-        "Table reservation management",
-        "Multi-location support with different menus",
-        "Payment gateway integration (Stripe, PayPal)",
-        "Admin dashboard for order and inventory management"
+        'Angular 19 SPA architecture',
+        'Tailwind CSS for atomic styling',
+        'Feature highlights with animations',
+        'Testimonials carousel and pricing cards',
+        'Functional contact form with validation'
       ],
       results: [
-        "300% increase in online orders",
-        "50% reduction in phone-based reservations",
-        "25% increase in average order value",
-        "Improved operational efficiency by 40%"
+        'Strong investor interest via link previews',
+        'Improved sign-up conversions on launch',
+        'Efficient reusability across other SaaS MVPs'
       ],
-      technologies: ["Next.js", "Express.js", "PostgreSQL", "Stripe API", "React Native"],
-      timeline: "8 weeks",
-      client: "FoodieHub Restaurant Group",
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/example"
+      technologies: ['Angular', 'Tailwind CSS', 'Supabase', 'Open Graph'],
+      timeline: '3 weeks',
+      client: 'SyncAI (Demo Project)',
+      liveUrl: 'http://syncai.mrkaushalshah.com/',
+      githubUrl: 'https://github.com/kaushalshah750/Orien-SyncAI'
     },
     {
       id: 3,
-      title: "MedCare Clinic",
-      subtitle: "Healthcare Practice",
-      category: "web-development",
-      tags: ["Healthcare", "Appointment System", "HIPAA Compliant", "React"],
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=600&fit=crop",
-      description: "HIPAA-compliant healthcare website with patient portal, appointment booking, and secure messaging.",
-      longDescription: "MedCare Clinic required a secure, professional website that would allow patients to book appointments, access their records, and communicate with healthcare providers while maintaining strict HIPAA compliance.",
+      title: 'SkillNest',
+      subtitle: 'Education & Coaching Institute Website',
+      category: 'web-design',
+      tags: ['Angular', 'Supabase', 'Education', 'Responsive Design'],
+      image: 'https://otiybtgavdvgrjhajnba.supabase.co/storage/v1/object/public/kaushalshah/projects/SkillNest/skillnest.webp',
+      description: 'A single-page educational website tailored for coaching institutes and tutoring centers.',
+      longDescription: 'SkillNest streamlines the enrollment process for coaching institutes. Its modular Angular design, combined with Supabase-powered forms, delivers a smooth and trustworthy digital experience for students and parents alike.',
       features: [
-        "HIPAA-compliant patient portal",
-        "Online appointment scheduling with calendar integration",
-        "Secure messaging between patients and providers",
-        "Medical records access and document upload",
-        "Insurance verification and billing integration"
+        'Angular 19 front-end with modular sections',
+        'Tailwind CSS with custom color palette',
+        'Supabase integration for live form handling',
+        'Course structure and schedule sections',
+        'SEO and Open Graph optimization'
       ],
       results: [
-        "70% reduction in phone-based appointment bookings",
-        "45% improvement in patient satisfaction scores",
-        "30% increase in appointment show-up rates",
-        "Streamlined administrative processes"
+        'Increased student sign-ups',
+        'Simplified offline coordination',
+        'Higher trust through transparent layout'
       ],
-      technologies: ["React", "Node.js", "MySQL", "Socket.io", "JWT Authentication"],
-      timeline: "10 weeks",
-      client: "MedCare Family Clinic",
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/example"
+      technologies: ['Angular', 'Tailwind CSS', 'Supabase'],
+      timeline: '4 weeks',
+      client: 'SkillNest Academy',
+      liveUrl: 'https://skillnest.mrkaushalshah.com/',
+      githubUrl: 'https://github.com/kaushalshah750/Orien-SkillNest'
     },
     {
       id: 4,
-      title: "TechStart Portfolio",
-      subtitle: "Startup Technology Company",
-      category: "seo-optimization",
-      tags: ["SEO", "Performance", "Analytics", "Content Strategy"],
-      image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600&fit=crop",
-      description: "Complete SEO overhaul and performance optimization for a growing tech startup's corporate website.",
-      longDescription: "TechStart needed to improve their online visibility and website performance to attract investors and clients. We implemented a comprehensive SEO strategy and performance optimization that dramatically improved their search rankings.",
-      features: [
-        "Comprehensive SEO audit and strategy implementation",
-        "Technical SEO improvements and site speed optimization",
-        "Content strategy and keyword optimization",
-        "Local SEO setup for multiple office locations",
-        "Analytics setup and conversion tracking"
-      ],
-      results: [
-        "400% increase in organic search traffic",
-        "Page load speed improved from 4.2s to 1.1s",
-        "First page rankings for 15+ target keywords",
-        "200% increase in qualified lead generation"
-      ],
-      technologies: ["Technical SEO", "Google Analytics", "Search Console", "PageSpeed Optimization"],
-      timeline: "4 weeks",
-      client: "TechStart Innovations",
-      liveUrl: "https://example.com",
-      githubUrl: null
+      title: 'Orien System Solution',
+      subtitle: 'Corporate Digital Agency Website',
+      category: 'web-design',
+      tags: ['Angular', 'TailwindCSS', 'Business Website', 'Corporate'],
+      image: 'https://otiybtgavdvgrjhajnba.supabase.co/storage/v1/object/public/kaushalshah/projects/Orien/orien.webp',
+      description: 'A professional, multi-page corporate site built for a full-service digital agency.',
+      longDescription: 'Orien System Solution positions a growing digital agency as a capable partner for modern businesses. With a detailed service offering, performance focus, and intuitive navigation, it is designed to attract and convert leads.',
+      features: ['Multi-page layout with Angular routing',
+      'Service-specific sections with CTA flow',
+      'Google Maps and structured contact form',
+      'SEO-friendly architecture and fast load',
+      'Team, stats, and testimonial blocks'],
+      results: ['Improved client conversion from website',
+      'Enhanced online credibility',
+      'Higher retention via clear services layout'],
+      technologies: ['Angular', 'Tailwind CSS', 'Google Maps', 'SEO'],
+      timeline: '5 weeks',
+      client: 'Orien System Solution',
+      liveUrl: 'https://www.orien.in/',
+      githubUrl: ''
     },
     {
       id: 5,
-      title: "LearningPath Academy",
-      subtitle: "Online Education Platform",
-      category: "web-development",
-      tags: ["EdTech", "LMS", "Video Streaming", "User Management"],
-      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop",
-      description: "Comprehensive learning management system with video streaming, progress tracking, and certification.",
-      longDescription: "LearningPath Academy wanted to create an online learning platform that could compete with major EdTech companies. We built a full-featured LMS with video streaming, interactive quizzes, and comprehensive student management.",
-      features: [
-        "Custom learning management system (LMS)",
-        "Video streaming with progress tracking",
-        "Interactive quizzes and assessments",
-        "Student progress analytics and reporting",
-        "Certification system with digital badges"
-      ],
-      results: [
-        "Successfully launched with 500+ enrolled students",
-        "95% course completion rate",
-        "4.8/5 average student satisfaction rating",
-        "Generated $50K+ in first quarter revenue"
-      ],
-      technologies: ["React", "Node.js", "MongoDB", "AWS S3", "Video.js"],
-      timeline: "12 weeks",
-      client: "LearningPath Academy",
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/example"
+      title: 'Pay Your Share',
+      subtitle: 'Group Expense Management App',
+      category: 'web-app',
+      tags: ['Angular', 'Node.js', 'MongoDB', 'Expense Tracker'],
+      image: 'https://otiybtgavdvgrjhajnba.supabase.co/storage/v1/object/public/kaushalshah/projects/Pay%20Your%20Share/pys.webp',
+      description: 'A MEAN-stack web app designed to simplify splitting and tracking group expenses.',
+      longDescription: 'Pay Your Share offers a clean interface and practical features for managing group payments. Whether it’s rent with roommates or trip expenses, the app provides secure group creation, customizable splitting, and real-time tracking.',
+      features: ['MEAN Stack architecture',
+      'Google Sign-In authentication',
+      'Custom ratio payment splitting',
+      'Live dashboard for tracking dues',
+      'Built-in feedback module'],
+      results: ['Simplified group finance handling',
+      'Real-time tracking reduced disputes',
+      'Improved trust with detailed summaries'],
+      technologies: ['MongoDB', 'Express.js', 'Angular', 'Node.js'],
+      timeline: '6 weeks',
+      client: 'Internal Project',
+      liveUrl: 'https://payyourshare.mrkaushalshah.com/',
+      githubUrl: ''
+    },
+    {
+      id: 6,
+      title: 'Mr. Kaushal Shah',
+      subtitle: 'Personal Portfolio Website',
+      category: 'web-design',
+      tags: ['Angular', 'TailwindCSS', 'Personal Branding', 'Portfolio'],
+      image: 'https://images.unsplash.com/photo-1533236897111-3e94666b2edf?w=800&h=600&fit=crop',
+      description: 'A personal portfolio website to showcase my work, skills, and freelance offerings.',
+      longDescription: 'Built with Angular and styled using Tailwind CSS, this portfolio site highlights my projects, skills, testimonials, and service offerings in a modern, responsive format — optimized for both clients and hiring managers.',
+      features: ['Angular SPA with project showcase',
+      'Tailwind-based custom design palette',
+      'Testimonial section and downloadable CV',
+      'Service packages and contact form',
+      'SEO and social sharing optimized'],
+      results: ['Improved personal brand visibility',
+      'Increased freelance inquiries',
+      'Better conversion from outreach efforts'],
+      technologies: ['Angular', 'Tailwind CSS', 'Open Graph', 'SEO'],
+      timeline: '2 weeks',
+      client: 'Kaushal Shah',
+      liveUrl: 'https://www.mrkaushalshah.com/',
+      githubUrl: ''
     }
   ];
 
   const filterCategories = [
     { key: 'all', label: 'All Projects', count: portfolioProjects.length },
     { key: 'web-design', label: 'Web Design', count: portfolioProjects.filter(p => p.category === 'web-design').length },
-    { key: 'web-development', label: 'Development', count: portfolioProjects.filter(p => p.category === 'web-development').length },
+    { key: 'web-app', label: 'Web Application', count: portfolioProjects.filter(p => p.category === 'web-app').length },
     { key: 'e-commerce', label: 'E-commerce', count: portfolioProjects.filter(p => p.category === 'e-commerce').length },
     { key: 'seo-optimization', label: 'SEO & Performance', count: portfolioProjects.filter(p => p.category === 'seo-optimization').length }
   ];
@@ -163,9 +180,9 @@ const PortfolioPage = () => {
     : portfolioProjects.filter(project => project.category === selectedFilter);
 
   const portfolioStats = [
-    { number: "50+", label: "Projects Completed" },
-    { number: "98%", label: "Client Satisfaction" },
-    { number: "200%", label: "Average ROI Increase" },
+    { number: "6+", label: "Projects Completed" },
+    { number: "99%", label: "Client Satisfaction" },
+    { number: "100%", label: "Mobile Optimized" },
     { number: "24/7", label: "Support Available" }
   ];
 
@@ -179,8 +196,17 @@ const PortfolioPage = () => {
     }
   };
 
+  const openUrl = (url) => {
+    window.open(url, '_blank');
+  }
+
   return (
     <>
+      <Helmet>
+        <title>Our Work – Web Development Portfolio | Sparqal</title>
+        <meta name="description" content="View Sparqal’s web development portfolio featuring high-performance websites, SaaS applications, and custom digital solutions delivered for clients across industries." />
+      </Helmet>
+
       <div className="min-h-screen bg-white">
         <Navbar />
         
@@ -339,11 +365,13 @@ const PortfolioPage = () => {
               Every great project starts with a conversation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-dark transition-all duration-300 transform hover:scale-105 flex items-center justify-center group">
-                Start Your Project
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button className="border-2 border-primary text-primary px-8 py-4 rounded-lg font-semibold hover:bg-primary hover:text-white transition-all duration-300">
+              <Link to="/contact">
+                <button className="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-dark transition-all duration-300 transform hover:scale-105 flex items-center justify-center group">
+                  Start Your Project
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </Link>
+              <button className="border-2 border-primary text-primary px-8 py-4 rounded-lg font-semibold hover:bg-primary hover:text-white transition-all duration-300" onClick={() => openUrl('https://calendly.com/kaushalshah750/1-1-discussion')}>
                 Schedule Consultation
               </button>
             </div>

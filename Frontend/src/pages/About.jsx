@@ -12,14 +12,12 @@ import {
   Lightbulb,
   CheckCircle,
   ArrowRight,
-  Star,
   Clock,
   MessageSquare,
   Eye,
   Compass,
   Handshake,
   Mail,
-  Phone
 } from 'lucide-react';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
@@ -154,6 +152,10 @@ const AboutPage = () => {
       text: "On-Time Delivery Promise"
     }
   ];
+
+  const openUrl = (url) => {
+    window.open(url, '_blank');
+  }
 
   return (
     <>
@@ -415,11 +417,11 @@ const AboutPage = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-light hover:text-dark transition-all duration-300 flex items-center justify-center group">
-              <MessageSquare className="mr-2 w-5 h-5" />
-              Schedule a Chat
+            <button className="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-light hover:text-dark transition-all duration-300 flex items-center justify-center group" onClick={() => openUrl('https://calendly.com/kaushalshah750/1-1-discussion')}>
+              Schedule Consultation
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
-            <button className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-dark transition-all duration-300 flex items-center justify-center">
+            <button className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-dark transition-all duration-300 flex items-center justify-center" onClick={() => openUrl('mailto:kaushal@mrkaushalshah.com')}>
               <Mail className="mr-2 w-5 h-5" />
               Send us an Email
             </button>

@@ -3,6 +3,7 @@ import { Menu, X, ArrowRight, Check, Star, Globe, Code, Zap, Users, ChevronDown,
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
 
 const SparqalHomepage = () => {
   const [openFaq, setOpenFaq] = useState(null);
@@ -88,7 +89,7 @@ const SparqalHomepage = () => {
   return (
     <>
       <Helmet>
-        <title>Sparqal – Full-Service Web Development Agency</title>
+        <title>Sparqal – Full-Stack Web Development Agency</title>
         <meta name="description" content="Sparqal is a modern web development agency crafting high-performance websites and digital experiences for businesses of all sizes across industries." />
       </Helmet>
 
@@ -150,17 +151,19 @@ const SparqalHomepage = () => {
 
                 {/* Action Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <button className="group bg-gradient-to-r from-primary to-dark text-white px-8 py-4 rounded-xl font-semibold hover:shadow-2xl hover:shadow-primary/25 transition-all duration-300 transform hover:scale-105 flex items-center justify-center relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-dark to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <span className="relative z-10 flex items-center">
-                      Start Your Project
-                      <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </span>
-                  </button>
+                  <Link to="/contact">
+                    <button className="group bg-gradient-to-r from-primary to-dark text-white px-8 py-4 rounded-xl font-semibold hover:shadow-2xl hover:shadow-primary/25 transition-all duration-300 transform hover:scale-105 flex items-center justify-center relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-r from-dark to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <span className="relative z-10 flex items-center">
+                        Start Your Project
+                        <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                      </span>
+                    </button>
+                  </Link>
                   
-                  <button className="group bg-white/80 backdrop-blur-sm border-2 border-primary text-primary px-8 py-4 rounded-xl font-semibold hover:bg-primary hover:text-white transition-all duration-300 flex items-center justify-center shadow-lg">
-                    <Play className="mr-2 w-5 h-5" />
-                    Watch Demo
+                  <button className="group bg-white/80 backdrop-blur-sm border-2 border-primary text-primary px-8 py-4 rounded-xl font-semibold hover:bg-primary hover:text-white transition-all duration-300 flex items-center justify-center shadow-lg" onClick={() => openUrl('https://calendly.com/kaushalshah750/1-1-discussion')}>
+                    Schedule Consultation
+                      <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
 

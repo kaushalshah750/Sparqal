@@ -6,6 +6,10 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const openUrl = (url) => {
+    window.open(url, '_blank');
+  }
+
   return (
     <>
       <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-100 z-50">
@@ -24,7 +28,7 @@ const Navbar = () => {
               <Link to="/about" className="text-gray-700 hover:text-primary transition-colors">About</Link>
               <Link to="/portfolio" className="text-gray-700 hover:text-primary transition-colors">Portfolio</Link>
               <Link to="/contact" className="text-gray-700 hover:text-primary transition-colors">Contact</Link>
-              <button className="bg-primary text-white px-6 py-2 rounded-lg hover:bg-dark transition-all duration-300 transform hover:scale-105">
+              <button className="bg-primary text-white px-6 py-2 rounded-lg hover:bg-dark transition-all duration-300 transform hover:scale-105" onClick={() => openUrl('https://calendly.com/kaushalshah750/1-1-discussion')}>
                 Get Started
               </button>
             </div>
