@@ -21,11 +21,11 @@ function App() {
       <ScrollToTop />
       <Routes>
         <Route path='/' element={<Home />} />
-        {/* <Route path='/login' element={<SparqalLogin />} />
+        <Route path='/login' element={<SparqalLogin />} />
         <Route path='/dashboard' element={<SparqalDashboard />}>
           <Route path='leads' element={<LeadsComponent />} />
           <Route path='portfolio' element={<PortfolioComponent />} />
-        </Route> */}
+        </Route>
         <Route path='/services' element={<ServicesPage />} />
         <Route path='/about' element={<AboutPage />} />
         <Route path='/portfolio' element={<PortfolioPage />} />

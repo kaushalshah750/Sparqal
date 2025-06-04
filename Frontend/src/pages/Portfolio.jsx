@@ -151,14 +151,18 @@ const PortfolioPage = () => {
       image: 'https://images.unsplash.com/photo-1533236897111-3e94666b2edf?w=800&h=600&fit=crop',
       description: 'A personal portfolio website to showcase my work, skills, and freelance offerings.',
       longDescription: 'Built with Angular and styled using Tailwind CSS, this portfolio site highlights my projects, skills, testimonials, and service offerings in a modern, responsive format — optimized for both clients and hiring managers.',
-      features: ['Angular SPA with project showcase',
-      'Tailwind-based custom design palette',
-      'Testimonial section and downloadable CV',
-      'Service packages and contact form',
-      'SEO and social sharing optimized'],
-      results: ['Improved personal brand visibility',
-      'Increased freelance inquiries',
-      'Better conversion from outreach efforts'],
+      features: [
+        'Angular SPA with project showcase',
+        'Tailwind-based custom design palette',
+        'Testimonial section and downloadable CV',
+        'Service packages and contact form',
+        'SEO and social sharing optimized'
+      ],
+      results: [
+        'Improved personal brand visibility',
+        'Increased freelance inquiries',
+        'Better conversion from outreach efforts'
+      ],
       technologies: ['Angular', 'Tailwind CSS', 'Open Graph', 'SEO'],
       timeline: '2 weeks',
       client: 'Kaushal Shah',

@@ -1,7 +1,7 @@
 // src/services/contact.service.js
 import axios from 'axios';
 
-const API_BASE = 'http://localhost:2003/api';
+const API_BASE = 'https://www.sparqal.com/api';
 
 export const sendContactForm = async (formData) => {
   try {
