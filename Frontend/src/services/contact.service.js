@@ -12,3 +12,13 @@ export const sendContactForm = async (formData) => {
     throw error;
   }
 };
+
+export const fetchContactLeads = async () => {
+  try {
+    const response = await axios.get(`${API_BASE}/contact`)
+    return response.data;
+  } catch (error) {
+    console.error('Failed to send contact form:', error);
+    throw error;
+  }
+};

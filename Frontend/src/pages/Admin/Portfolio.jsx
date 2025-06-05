@@ -18,7 +18,6 @@ import {
 
 const PortfolioComponent = () => {
   const [portfolioProjects, setPortfolioProjects] = useState([]);
-
   const [showModal, setShowModal] = useState(false);
   const [editingProject, setEditingProject] = useState(null);
   const [currentTag, setCurrentTag] = useState("");
@@ -46,7 +45,7 @@ const PortfolioComponent = () => {
   const categories = [
     "web-design",
     "e-commerce",
-    "web-development",
+    "web-app",
     "seo-optimization",
     "mobile-app",
   ];
@@ -189,6 +188,7 @@ const PortfolioComponent = () => {
       .then((response) => {
         console.log("Fetched portfolio projects:", response);
         setPortfolioProjects(response); // Assuming response is an array of portfolio projects
+        console.log(portfolioProjects);
       })
       .catch((error) => {
         console.error("Error fetching portfolio projects:", error);
@@ -212,7 +212,7 @@ const PortfolioComponent = () => {
     const colors = {
       "web-design": "bg-primary text-white",
       "e-commerce": "bg-light text-primary",
-      "web-development": "bg-dark text-white",
+      "web-app": "bg-dark text-white",
       "seo-optimization": "bg-primary text-white",
     };
     return colors[category] || "bg-light text-primary";

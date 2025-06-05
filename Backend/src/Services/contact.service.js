@@ -8,6 +8,8 @@ async function submitContactForm(contactData) {
         name: name,
         email: email,
         type: type,
+        lastContact: null,
+        source: "Contact Form",
         project_detail: project_detail
     });
 
@@ -17,6 +19,15 @@ async function submitContactForm(contactData) {
     return { message: 'Contact form submitted successfully' };
 }
 
+async function fetchContactLeads() {
+    var contact = await contactModel.find();
+    if (!contact) {
+        throw new Error('No contact leads found');
+    }
+    return contact;
+}
+
 module.exports = {
-    submitContactForm
+    submitContactForm,
+    fetchContactLeads
 };
