@@ -38,8 +38,6 @@ async function addPortfolio(portfolioDetails) {
 
 async function updatePortfolio(id, updatedDetails) {
     try {
-        console.log('Updating portfolio with ID:', id);
-        console.log('Updated Details:', updatedDetails);
         const updatedPortfolio = await portfolioModel.findByIdAndUpdate(
             id,
             updatedDetails

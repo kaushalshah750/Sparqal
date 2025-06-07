@@ -2,7 +2,6 @@ const userService = require('../Services/user.service')
 
 exports.registerUser = async (req, res) => {
     try{
-        console.log(req.body)
         await userService.registerUser(req.body).then((response) => {
             if(response){
                 res.status(201).json({ message: 'User created successfully' })
@@ -18,7 +17,6 @@ exports.registerUser = async (req, res) => {
 
 exports.loginUser = async (req, res) => {
     try{
-        console.log(req.body)
         await userService.loginUser(req.body).then((response) => {
             if(response){
                 res.status(200).json(response)
