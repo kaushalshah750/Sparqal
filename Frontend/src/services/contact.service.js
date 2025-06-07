@@ -1,11 +1,10 @@
-// src/services/contact.service.js
-import axios from 'axios';
+import { get, post } from './api.service';
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL;
+const API_BASE = import.meta.env.VITE_API_BASE_URL + "/contact";
 
 export const sendContactForm = async (formData) => {
   try {
-    const response = await axios.post(`${API_BASE}/contact`, formData);
+    const response = await post(API_BASE, formData);
     return response.data;
   } catch (error) {
     console.error('Failed to send contact form:', error);
@@ -15,7 +14,7 @@ export const sendContactForm = async (formData) => {
 
 export const fetchContactLeads = async () => {
   try {
-    const response = await axios.get(`${API_BASE}/contact`)
+    const response = await get(API_BASE)
     return response.data;
   } catch (error) {
     console.error('Failed to send contact form:', error);
